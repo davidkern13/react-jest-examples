@@ -11,6 +11,10 @@ describe("use state test", () => {
     const useStateSpy = jest.spyOn(React, 'useState'); //appropriate for overwrite the original function
     useStateSpy.mockImplementation((init) => [init, setState]); //Accepts a function that should be used as the implementation of the mock.
     
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+    
     test("mock useState and update with value", () =>{
         //trigger setState
         setState();
